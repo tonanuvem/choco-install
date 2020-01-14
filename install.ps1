@@ -34,7 +34,7 @@ $url = ''
 $chocolateyVersion = $env:chocolateyVersion
 if (![string]::IsNullOrEmpty($chocolateyVersion)){
   Write-Output "Downloading specific version of Chocolatey: $chocolateyVersion"
-  $url = "http://10.20.72.80/chocolatey.zip"
+  $url = "https://tonanuvem.net/choco/chocolatey.zip"
 }
 
 $chocolateyDownloadUrl = $env:chocolateyDownloadUrl
@@ -169,7 +169,7 @@ param (
 
 if ($url -eq $null -or $url -eq '') {
   Write-Output "Getting latest version of the Chocolatey package for download."
-  $url = 'http://10.20.72.80/chocolatey.zip'
+  $url = 'https://tonanuvem.net/choco/chocolatey.zip'
 #  [xml]$result = Download-String $url
 #  $url = $result.feed.entry.content.src
 }
@@ -189,7 +189,7 @@ if ($useWindowsCompression -ne $null -and $useWindowsCompression -eq 'true') {
 } elseif (-Not (Test-Path ($7zaExe))) {
   Write-Output "Downloading 7-Zip commandline tool prior to extraction."
   # download 7zip
-  Download-File 'http://10.20.72.80/7za.exe' "$7zaExe"
+  Download-File 'https://tonanuvem.net/choco/7za.exe' "$7zaExe"
 }
 
 # unzip the package
